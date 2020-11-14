@@ -1,1 +1,1 @@
-# Campus-Association_front
+# 本仓库放置前端代码
