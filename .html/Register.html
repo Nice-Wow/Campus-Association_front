@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>校园百社通注册界面</title>
+    <link href="../.style/Register.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="register">
+        <h1>注册</h1>
+        <form method="post">
+            <input type="text" required="required" placeholder="用户名" name="username" id="id_username"></input>
+            <input type="password" required="required" placeholder="密码" name="password" id="id_password"></input>
+            <input type="text" required="required" placeholder="邮箱" name="email" id="id_mailbox"></input>
+            <input type="text" required="required" placeholder="手机号" name="phoneNum" id="id_phonenumber"></input>
+            <button type="button" class="but" id="reg-submit">注册</button>
+        </form>
+        <p>已有账号？<a href="login.html">请登录</a></p>
+    </div>
+
+    <script type="text/javascript" src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        //AJAX提交注册数据
+        $("#reg-submit").click(function () {
+            //取到用户填写的注册数据，向后端发送AJAX请求            
+            var username = $("#id_username").val();
+            var password = $("#id_password").val();
+            var email = $("#id_mailbox").val();
+            var phoneNum = $("#id_phonenumber").val();
+            var data1 = {
+                "username": username,
+                "password": password,
+                "email": email,
+                "phoneNum": phoneNum,
+            };
+            $.ajax({
+                url: "http://47.94.228.136:9999/user/register",
+                type: "POST",
+                contentType: 'application/json;charset=utf-8',
+                dataType: "json",
+                data: JSON.stringify(data1),
+                success: function (data) {
+                    if (data.status) {
+                        //有错误就展示错误
+                        alert("注册失败！");
+                    } else {
+                        //没有错误就跳转到指定页面
+                        if (data.msg == "用户邮箱输入格式不合法") {
+                            alert("用户邮箱输入格式不合法，请重新输入！");
+                        }
+                        else if (data.msg == "用户名输入格式不合法") {
+                            alert("用户名输入格式不合法，请重新输入！\n（提示：请以字母开头且最少为5位）");
+                        }
+                        else if (data.msg == "密码输入格式不合法") {
+                            alert("密码格式不合法，请重新输入！\n（提示：请以字母开头且最少为6位）");
+                        }
+                        else if (data.msg == "手机号输入格式不合法") {
+                            alert("手机号输入格式不合法，请重新输入！");
+                        }
+                        else if (data.msg == "用户名已存在") {
+                            alert("用户名已存在，请重新输入！");
+                        }
+                        else if (data.msg == "邮箱已存在") {
+                            alert("邮箱已存在，请重新输入！");
+                        }
+                        else if (data.msg == "手机号已存在") {
+                            alert("手机号已存在，请重新输入！");
+                        }
+                        else {
+                            alert("注册成功！");
+                            // window.location.href = "login.html";
+                        }
+                        console.log(data);
+                    }
+                },
+                error: function (data) {
+                    alert("发生错误！");
+
+                }
+            })
+
+        });
+    </script>
+
+
+</body>
+
+</html>
