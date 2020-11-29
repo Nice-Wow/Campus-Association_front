@@ -5,6 +5,10 @@
     padding:0;
 }
 
+button {
+    border-radius: 5px;
+}
+
 li {
     list-style: none;
 }
@@ -59,10 +63,10 @@ header h1 {
 .box .firstul .firstli label {
     float: left;
     width: 145px;
-    font-weight:normal; 
+    font-weight:700; 
     font-size: 0.8em; 
     color: #ecf9ff; 
-    text-shadow: 0 0 10px;
+    text-shadow: 0 0 2px;
 }
 
 
@@ -111,72 +115,49 @@ header h1 {
 }
 
 
-.box .firstd1 {
-    font-size: 3em;
+.firstd1 aside a{
+    height: 137px;
+    font-size: 18px;
     font-weight: 700;
 }
 
-.box .firstd1 p{
-    display: inline-block;
-
+.board .board_li {
+    height: 149px;
+    line-height: 149px; 
 }
 
-.box .firstd1 .onep {
-    margin-top: 50px;
+.board .board_a {
+    font-size: 30px; 
 }
 
-.box .firstd1 .twop {
-    width: 590px;
-}
-
-
-aside{ 
-    float:left; 
-    list-style:none; 
-    height:250px; 
+.board{ 
+    float: left;
+    list-style: none;
+    height: 300px;
     width: 147px;
-    } 
+    margin-top: 20px;
+    background-color: rgba(13, 184, 164, 0.62);
+} 
 
-aside ul{ 
-    list-style:none; 
-    width: 200px;
-    margin-bottom:20px; 
-    margin-top:20px; 
-    margin-left:0px; 
-    } 
+.board li{
+    height: 74px;
+    line-height:74px; 
+    border-bottom:1px solid #07E0FC;  
+} 
 
-aside li{ 
-    width: 147px;
-    text-align:left; 
-    border-bottom:1px solid #07E0FC; 
-    } 
-
-
-aside ul li a{ 
-    background-position:left center; 
-    display:block; 
-    background-color:rgba(13, 184, 164, 0.62); 
-    line-height:4em; 
-    margin-right:0px; 
-    padding-top:6px; 
-    padding-bottom:6px; 
-    padding-left:22px; 
+.board a {
     color: black; 
-    font-weight:normal; 
-    font-size: 0.8em; 
-    text-decoration: none; 
-    width:125px; 
-    } 
-
-
-
+    font-size: 18px;  
+    font-weight:700; 
+    text-decoration: none;
+}
 
 #firstd2{ 
     margin:0 auto; 
     width:902px; 
     height:290px; 
     clear:both; 
-    } 
+} 
 
 .firstd2 .abox {
     width: 725px;
@@ -238,39 +219,124 @@ aside ul li a{
     width: 60px;
 }
 
-section{ 
-    float:left; 
-    width:80%; 
-    height: 84%;
-    margin-left:18px; 
-    margin-top:20px; 
-    background-color:rgba(8, 126, 136, 0.48); 
-    text-align:left; 
-    font-size:0.9em; 
-    padding:5px; 
-    } 
+.og_section{ 
+    float: left;
+    width: 730px;
+    height: 300px;
+    margin-top: 20px;
+    margin-left: 19px;
+    background-color: #088489a8;
+    text-align: left;
+} 
+
+.og_section div {
+    float: left;
+}
+
+.og_section .section_one {
+    width: 180px;
+    height: 190px;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+.og_section .section_two {
+    width: 520px;
+    height: 250px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.og_section .section_two p {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.og_section .section_two div {
+    font-size: 10px;
+}
+
+.rentel_record div{
+    width: 200px;
+    height: 110px;
+    text-align: center;
+    background: #a6ffde;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.rentel_record p {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.rentel_record button{
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+.borrowed {
+    display: none;
+}
+
+.hide {
+    width: 500px;
+    height: 160px;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 280px;
+    background-color: #a6ffde;
+    border: 1px black solid;
+    border-radius: 20px;
+    /* 默认对话框隐藏 */
+    /* display: none; */
+}
 
 
-section h1{ 
-    display:block; 
-    font-size:0.9em; 
-    width:50px; 
-    text-align:left; 
-    color:black; 
-    font-family:arial;  
-    padding:5px; 
-    margin-top:5px; 
-    margin-left:12px; 
-    } 
+.hide p {
+    width: 450px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 50px;
+    margin-top: -5px;
+}
 
+.hide span {
+    float: left;
+    font-size: 1.5em;
+    color: #000;
+    height: 30px;
+    line-height: 30px;
+}
 
-section p{  
-    font: normal 0.9em Arial, Verdana, Helvetica, sans-serif; 
-    font-size:0.9em; 
-    color: #000000; 
-    padding:10px; 
-    text-align:left; 
-    } 
+.hide input {
+    float: left;
+    width: 35px;
+    height: 26px;
+    line-height: 30px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.hide button {
+    float: left;
+    width: 80px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #58ff06a1;
+    border: 1px #37210c solid;
+    margin-top: 3px;
+    margin-left: 70px;
+}
+
+.hide .order_number {
+    margin-top: 22px;
+}
 
 .firstd3 {
     margin-top: 50px;

@@ -20,46 +20,80 @@
   <div class="box">
     <ul id="comtop" class="firstul">
       <li tabindex="1" class="firstli">
-        <input type="radio" name="check" id="active1"><label for="active1">租借记录</label>
+        <input type="radio" name="check" id="active1" checked><label for="active1">租借记录</label>
         <div class="firstd1">
-          <p class="onep">租借中</p>
-          <p class="twop">fgdhdfhdf</p>
-          <p class="onep">完成租借</p>
-          <p class="twop">dhdfhdfh</p>
+          <ul class="board">
+            <li class="board_li"><a class="board_a" href="#" onClick="msgborrow(1)">租借中 </a></li>
+            <li class="board_li"><a class="board_a" href="#" onClick="msgborrow(0)">完成租借</a></li>
+          </ul>
+          <section id="id_borrowing" class="og_section rentel_record borrowing">
+
+          </section>
+          <!-- <div id="id_hide" class="hide">
+            <p class="order_number">
+              <span>请输入归还租借的物资序号：</span>
+              <input id="id_order" type="text">
+            </p>
+            <p>
+              <span>请输入归还租借的物资数量：</span>
+              <input class="borrowNumbers" type="number" min="1" max="5" value="1">
+            </p>
+            <p>
+              <button id="id_borrow" onClick="msgbox(0)">确定</button>
+              <button onClick="msgbox(2)">关闭</button>
+            </p>
+          </div> -->
+          <section id="id_borrowed" class="og_section rentel_record borrowed">
+            <div>
+              <p><span>物资序号：</span></p>
+              <p><span>租借数量：</span></p>
+              <button>重新租借</button>
+            </div>
+          </section>
         </div>
       </li>
 
       <li tabindex="1" class="firstli">
         <input type="radio" name="check" id="active2"><label for="active2">我的组织</label>
-
         <div class="firstd2">
-          <aside>
-            <ul>
-              <li><a href="#" onClick="msgbox(1)">物质管理 </a></li>
-              <li><a href="index1.html">邀请管理员 </a></li>
-              <li><a href="index1.html">转让负责人 </a></li>
-              <li><a href="index1.html">更多 </a></li>
-            </ul>
-          </aside>
+          <ul class="board">
+            <li><a href="#" onClick="msgbox(1)">物质管理 </a></li>
+            <li><a href="#">邀请管理员 </a></li>
+            <li><a href="#">转让负责人 </a></li>
+            <li><a href="#">更多 </a></li>
+          </ul>
           <div id='id_abox' class="abox">
             <p class="p_one"> <span> 物资名称：</span><input type="text" id="id_itemsName"></p>
             <p> <span>所属社团：</span> <input type="text" id="id_community"></p>
             <p> <span>详情备注：</span> <input type="text" id="id_detail"></p>
             <p> <span>物资数量：</span> <input type="number" min="1" max="100" value="10" class="p_four" id="id_numbers"></p>
             <button id="issuance">确定</button>
-            <button>关闭</button>
+            <button onClick="msgbox(0)">关闭</button>
           </div>
-          <section id="id_section">
-            <h1>组织log</h1>
-            <p> 早上起来脑袋都昏沉，直到现在都是。 机器还在响着，车间里更热，所以我不去开空调，只希望自然风再大些。 那些可爱的人们在我的眼皮底下辛苦的干着活，又脏又累，我怎么忍心？？？
-              把褥子被子都拿出去晒了，太阳出来又进去，到底是怎么啦提不起劲儿？ 这些工作都做完，喝了一杯温开水，汗流浃背，衣服湿透了，脑袋依然昏沉。 宿舍里很压抑，不知道是自己的原因还是环境就这样？
-            </p>
-
-            <h1>组织名</h1>
-            <p>当年张爸爸在工地上，没有风扇，没有空调，只要一把旧芭蕉扇就度过了几个夏天，何况我晚上还有一台电风扇，比起他的艰辛我这又算什么。
-              张妈妈在家里放了关于佛的书籍还有音乐，每天重复着大慈大悲，这些音乐听得我特别感动，一有空闲就想听听这样的音乐看看这些书。
-              他们本来就是一群超善良的人们，过于懂得感恩是值得善待的人们，想到他们我就特心疼特忘情。
-            </p>
+          <section id="id_section" class="og_section">
+            <div class="section_one">
+              <img src="../images/社团logo/校团委.png" width="180px" alt="#">
+            </div>
+            <div class="section_two">
+              <p>（一）综合部（社团部）</p>
+              <div>
+                1．负责公文处理、综合协调、政治业务学习、考勤考核、 固定资产管理、会务事务、印信管理、档案管理等工作；<br>
+                2．负责学生社团管理工作；<br>
+                3．负责组织开展校园文化活动等...<br><br>
+              </div>
+              <p>（二）组织宣传部<br> </p>
+              <div>
+                1．负责发展团员与管理、团籍档案管理、团员组织关系转 接，指导基层团组织建设与开展组织生活；<br>
+                2．负责业余团校工作；<br>
+                3．负责团属干部管理培训和考核工作等...<br><br>
+              </div>
+              <p>（三）科技实践部<br></p>
+              <div>
+                1．负责全校共青团的学术科技工作，帮助大学生利用第二 课堂进行科技创新精神的培养；<br>
+                2．负责团委大学生课外学术科技活动的评优评奖总结表彰 工作；<br>
+                3．负责组织全校学生开展校内外社会实践和青年志愿服务 活动，并进行考核、评优与总结表彰等...<br><br>
+              </div>
+            </div>
           </section>
         </div>
       </li>
@@ -83,7 +117,7 @@
       </li>
 
       <li tabindex="1" class="firstli">
-        <input type="radio" name="check" id="active5" checked><label for="active5">我的标记</label>
+        <input type="radio" name="check" id="active5"><label for="active5">我的标记</label>
         <div class="firstd5">
           <ul>
             <li>
@@ -170,9 +204,46 @@
     function information2() {
       alert("型号：动圈式麦克风\n使用情况：一年");
     }
+    //实现“我的组织”中“物资管理”的显示与关闭
     function msgbox(n) {
-      document.getElementById('id_abox').style.display = n ? 'block' : 'none';     /* 点击按钮打开/关闭 对话框 */
+      /* 点击按钮打开/关闭 对话框 */
+      document.getElementById('id_abox').style.display = n ? 'block' : 'none';
       document.getElementById('id_section').style.display = n ? 'none' : 'block';
+    }
+    //实现“租借记录”中“租借中”和“完成租借”的转换显示
+    function msgborrow(n) {
+      /* 点击按钮打开/关闭 对话框 */
+      document.getElementById('id_borrowing').style.display = n ? 'block' : 'none';
+      document.getElementById('id_borrowed').style.display = n ? 'none' : 'block';
+      //点击租借中则显示所租借的物品
+      if (n == 1) {
+        $.ajax({
+          url: "http://47.94.228.136:9999/borrow/selectMyBorrow",
+          type: "POST",
+          contentType: 'application/json',
+          dataType: "json",
+          headers: { 'Authorization': window.localStorage.getItem("token") },
+          success: function (data) {
+            if (data.status) {
+              //有错误就展示错误
+              alert("查询失败！");
+            }
+            else {
+              var html = "";
+              for (var i = 0; i < data.data.length; i++) {
+                var ls = data.data[i];
+                html += "<div><p><span>物资名称：" + ls.itemsName + "</span></p><p><span>租借数量："
+                  + ls.borrowNumbers + "</span></p><button>取消租借</button></div>"
+              }
+              $("#id_borrowing").html(html); //在html页面id=test的标签里显示html内容
+              console.log(data);
+            }
+          },
+          error: function (data) {
+            alert("出现错误！");
+          }
+        });
+      }
     }
     //AJAX提交物资发布数据
     $("#issuance").click(function () {
