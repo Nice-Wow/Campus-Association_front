@@ -14,6 +14,7 @@
     <h1>
       个人中心
     </h1>
+    <button class="back" onclick="window.location.href='main.html'">返回主界面</button>
   </header>
 
   <div class="box">
@@ -34,13 +35,21 @@
         <div class="firstd2">
           <aside>
             <ul>
-              <li><a href="index1.html">物质管理 </a></li>
+              <li><a href="#" onClick="msgbox(1)">物质管理 </a></li>
               <li><a href="index1.html">邀请管理员 </a></li>
               <li><a href="index1.html">转让负责人 </a></li>
               <li><a href="index1.html">更多 </a></li>
             </ul>
           </aside>
-          <section>
+          <div id='id_abox' class="abox">
+            <p class="p_one"> <span> 物资名称：</span><input type="text" id="id_itemsName"></p>
+            <p> <span>所属社团：</span> <input type="text" id="id_community"></p>
+            <p> <span>详情备注：</span> <input type="text" id="id_detail"></p>
+            <p> <span>物资数量：</span> <input type="number" min="1" max="100" value="10" class="p_four" id="id_numbers"></p>
+            <button id="issuance">确定</button>
+            <button>关闭</button>
+          </div>
+          <section id="id_section">
             <h1>组织log</h1>
             <p> 早上起来脑袋都昏沉，直到现在都是。 机器还在响着，车间里更热，所以我不去开空调，只希望自然风再大些。 那些可爱的人们在我的眼皮底下辛苦的干着活，又脏又累，我怎么忍心？？？
               把褥子被子都拿出去晒了，太阳出来又进去，到底是怎么啦提不起劲儿？ 这些工作都做完，喝了一杯温开水，汗流浃背，衣服湿透了，脑袋依然昏沉。 宿舍里很压抑，不知道是自己的原因还是环境就这样？
@@ -78,13 +87,6 @@
         <div class="firstd5">
           <ul>
             <li>
-
-              <script>
-                function borrow() {
-                  alert("申请成功");
-                }
-              </script>
-
               <div>
                 <img src="../images/物资/desk.jpg" width="100px" height="100px" alt="#">
                 <p class="p1">
@@ -97,13 +99,6 @@
                 <p class="p2">校团委社团</p>
                 <button onclick="borrow()">租借</button>
                 <button onclick="information1()">详细</button>
-
-                <script>
-                  function information1() {
-                    alert("长桌尺寸：140*80*76 cm\n使用情况：两年");
-                  }
-                </script>
-
               </div>
             </li>
             <li>
@@ -119,13 +114,6 @@
                 <p class="p2">校团委社团</p>
                 <button onclick="borrow()">租借</button>
                 <button onclick="information2()">详细</button>
-
-                <script>
-                  function information2() {
-                    alert("型号：动圈式麦克风\n使用情况：一年");
-                  }
-                </script>
-
               </div>
             </li>
             <li>
@@ -141,13 +129,6 @@
                 <p class="p2">校学生会社团</p>
                 <button onclick="borrow()">租借</button>
                 <button onclick="information3()">详细</button>
-
-                <script>
-                  function information3() {
-                    alert("环绕音响：420×336×222mm\n使用情况：两年");
-                  }
-                </script>
-
               </div>
             </li>
           </ul>
@@ -166,8 +147,6 @@
     </ul>
   </div>
 
-
-
   <footer>
     <p>版权所有</p>
     <hr style="background-color: blue; height: 1px; border: none;" />
@@ -176,6 +155,67 @@
     <small>客户意见</small>
     <small>商户合作</small>
   </footer>
+
+  <script type="text/javascript" src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function borrow() {
+      alert("申请成功");
+    }
+    function information3() {
+      alert("环绕音响：420×336×222mm\n使用情况：两年");
+    }
+    function information1() {
+      alert("长桌尺寸：140*80*76 cm\n使用情况：两年");
+    }
+    function information2() {
+      alert("型号：动圈式麦克风\n使用情况：一年");
+    }
+    function msgbox(n) {
+      document.getElementById('id_abox').style.display = n ? 'block' : 'none';     /* 点击按钮打开/关闭 对话框 */
+      document.getElementById('id_section').style.display = n ? 'none' : 'block';
+    }
+    //AJAX提交物资发布数据
+    $("#issuance").click(function () {
+      //取到用户填写的物资发布数据，向后端发送AJAX请求            
+      var itemsName = $("#id_itemsName").val();
+      var community = $("#id_community").val();
+      var detail = $("#id_detail").val();
+      var numbers = document.getElementsByClassName("p_four")[0].value;
+      var nowNumbers = numbers;
+      var data1 = {
+        "itemsName": itemsName,
+        "community": community,
+        "detail": detail,
+        "numbers": numbers,
+        "nowNumbers": nowNumbers,
+      };
+      $.ajax({
+        url: "http://47.94.228.136:9999/items/addItems",
+        type: "POST",
+        contentType: 'application/json',
+        dataType: "json",
+        data: JSON.stringify(data1),
+        headers: { 'Authorization': window.localStorage.getItem("token") },
+        success: function (data) {
+          if (data.status) {
+            //有错误就展示错误
+            alert("物资发布失败！");
+          }
+          else {
+            alert("物资发布成功！");
+            console.log(data);
+            //将文本框内容置空
+            document.getElementById("id_itemsName").value = "";
+            document.getElementById("id_community").value = "";
+            document.getElementById("id_detail").value = "";
+          }
+        },
+        error: function (data) {
+          alert("出现错误！");
+        }
+      })
+    });
+  </script>
 
 
 </body>

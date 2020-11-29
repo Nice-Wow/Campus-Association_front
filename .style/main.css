@@ -28,21 +28,84 @@ div{
 
 div span {
     font-size: 3em;
-    color: #000371;
+    color:#00ffd2;
+    text-shadow: 0 0 10px;
 }
 
 div .image2 {
     width: 900px;
     margin-top: 50px;
+    opacity: 0.8;
 }
 
-/* nav{ 
-    list-style-type:none; 
-    margin:0px auto; 
-    width:900px; 
-    background-color:#303; 
-    clear:both; 
-    }  */
+.refurbish {
+    width: 165px;
+    height: 55px;
+    background-color: #37210c;
+    color: #00c2fffa;
+    text-shadow: 0 0 2px;
+    font-size: 25px;
+    font-weight: 700;
+    border: 1px #00f1fff2 solid;
+    margin-top: 10px;
+}
+
+.hide {
+    width: 500px;
+    height: 160px;
+    position: absolute;
+    margin-top: 140px;
+    margin-left: 400px;
+    background-color: #a6ffde;
+    border: 1px black solid;
+    border-radius: 20px;
+    /* 默认对话框隐藏 */
+    display: none;
+}
+
+
+.hide p {
+    width: 450px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 50px;
+    margin-top: -5px;
+}
+
+.hide span {
+    float: left;
+    font-size: 1.5em;
+    color: #000;
+    height: 30px;
+    line-height: 30px;
+}
+
+.hide input {
+    float: left;
+    width: 35px;
+    height: 26px;
+    line-height: 30px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.hide button {
+    float: left;
+    width: 80px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #58ff06a1;
+    border: 1px #37210c solid;
+    margin-top: 3px;
+    margin-left: 70px;
+}
+
+.hide .order_number {
+    margin-top: 22px;
+}
+
 ul{ 
     list-style:none; 
     width: 902px;
@@ -61,7 +124,9 @@ ul li a{
     line-height:2.5em; 
     margin-right:0px; 
     padding:8px 14px 8px 14px; 
-    color: #ecf9ff; 
+    color: #00c2fffa; 
+    text-shadow: 0 0 2px;
+    border: 1px #4a7984  solid;
     font-weight:normal; 
     font-size: 0.8em; 
     text-decoration: none; 
@@ -77,7 +142,7 @@ li a:hover{
 .item {
     height: 400px;
     background-color: #0089ff4f;
-    margin: 90px auto;
+    margin: 30px auto;
 }
 
 .item .itempic {
@@ -90,13 +155,20 @@ li a:hover{
 
 }
 
+.item .itemsId {
+    height: 15%;
+    font-size: larger;
+    color: #0006ff;
+    text-shadow: 0 0 2px;
+}
+
 .item .name {
-    height: 20%;
+    height: 15%;
     font-size: larger;
 }
 
 .item .belong {
-    height: 20px;
+    height: 0%;
     font-size: larger;
 }
 
@@ -120,10 +192,6 @@ li a:hover{
     font-size: 25px;
 }
 
-.item .name {
-    height: 20%;
-    font-size: larger;
-}
 
 /* 共同的样式 */
 .item .mark button {
@@ -133,6 +201,7 @@ li a:hover{
     font-size: 25px;
     font-weight: 700;
     background-color: #9ce0fb;
+    border: 1px #37210c solid;
 }
 
 .item .mark .bt {

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="userName" type="text" />
+    <input id="passwords" type="password" />
+    <button id="btn">设置</button>
+    <button onclick="login()">传递cookie</button>
+    <button onclick="deletecookie()">删除</button>
+
+    <script language="javascript">
+        function login() {
+            location.href = 'b.html';
+            //设置localStorage
+            window.localStorage.setItem('how', '456');
+        }
+
+        // //设置cookie
+        // var setCookie = function (name, value, day) {
+        //     //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+        //     var expires = day * 24 * 60 * 60 * 1000;
+        //     var exp = new Date();
+        //     exp.setTime(exp.getTime() + expires);
+        //     document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+        // };
+        // //获取cookie代码
+        // var getCookie = function (name) {
+        //     var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        //     if (arr = document.cookie.match(reg))
+        //         return unescape(arr[2]);
+        //     return null;
+        // };
+        // //删除cookie
+        // var delCookie = function (name) {
+        //     setCookie(name, ' ', -1);
+        // };
+        // //传递cookie
+        // function login() {
+        //     var name = document.getElementById("userName");
+        //     var pass = document.getElementById("passwords");
+        //     document.cookie = "name=张三"
+        //     console.log(document.cookie);
+        // }
+        // function deletecookie() {
+        //     delCookie('userName', ' ', -1);
+        // }
+    </script>
+</body>
+
+</html>

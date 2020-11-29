@@ -9,15 +9,6 @@
 </head>
 
 <body>
-    <script>
-        function borrow() {
-            alert("申请成功！");
-        }
-        function sign() {
-            alert("标记成功！");
-        }
-    </script>
-
     <div>
         <span class="main"> 主界面 </span>
     </div>
@@ -27,109 +18,262 @@
             <li><a href="index2.html" class="og">组织 </a></li>
             <li><a href="mypages.html" class="mypages">我的 </a></li>
     </nav>
-    <div class="item">
+    <button id="id_login" class="refurbish" onclick="window.location.href='login.html'">返回登陆界面</button>
+    <button id="id_reburbish" class="refurbish">刷新物资信息</button>
+    <div id="id_hide" class="hide">
+        <p class="order_number">
+            <span>请输入所要申请的物资序号：</span>
+            <input id="id_order" type="text">
+        </p>
+        <p>
+            <span>请输入所要申请的物资数量：</span>
+            <input class="borrowNumbers" type="number" min="1" max="5" value="1">
+        </p>
+        <p>
+            <button id="id_borrow" onClick="msgbox(0)">确定</button>
+            <button onClick="msgbox(2)">关闭</button>
+        </p>
+    </div>
+    <div class=" item">
         <img src="../images/物资/打气筒.png" alt="打气筒" class="itempic" />
-        <p class="name">物资：打气筒</p>
-        <p class="belong">所属社团：校团委</p>
+        <p id="id_itemsId1" class="itemsId"></p>
+        <p id="id_name1" class="name"></p>
+        <p id="id_belong1" class="belong"></p>
         <div class="mark">
-            <button type="submit" onclick="borrow()">租借</button>
-            <button>详细</button>
+            <button type="submit" onClick="msgbox(1)">租借</button>
+            <button onclick="Info1()">详细</button>
             <button onclick="sign()">标记</button>
         </div>
     </div>
 
     <div class="item">
         <img src="../images/物资/喇叭.png" alt="喇叭" class="itempic" />
-        <p class="name"> 物资：喇叭</p>
-        <p class="belong">所属社团：校学生会</p>
+        <p id="id_itemsId2" class="itemsId"></p>
+        <p id="id_name2" class="name"></p>
+        <p id="id_belong2" class="belong"></p>
         <div class="mark">
-            <button type="submit" onclick="borrow()">租借</button>
-            <button>详细</button>
+            <button type="submit" onclick="msgbox(1)">租借</button>
+            <button onclick="Info2()">详细</button>
             <button onclick="sign()">标记</button>
         </div>
     </div>
 
     <div class="item">
         <img src="../images/物资/木椅子.png" alt="木椅子" class="itempic" />
-        <p class="name"> 物资：木椅子</p>
-        <p class="belong">所属社团：校团委</p>
+        <p id="id_itemsId3" class="itemsId"></p>
+        <p id="id_name3" class="name"></p>
+        <p id="id_belong3" class="belong"></p>
         <div class="mark">
-            <button type="submit" onclick="borrow()">租借</button>
-            <button>详细</button>
+            <button type="submit" onclick="msgbox(1)">租借</button>
+            <button onclick="Info3()">详细</button>
             <button onclick="sign()">标记</button>
         </div>
     </div>
     <div class="item">
         <img src="../images/物资/木桌子.png" alt="木桌子" class="itempic" />
-        <p class="name"> 物资：木桌子</p>
-        <p class="belong">所属社团：校学生会</p>
+        <p id="id_itemsId4" class="itemsId"></p>
+        <p id="id_name4" class="name"></p>
+        <p id="id_belong4" class="belong"></p>
         <div class="mark">
-            <button type="submit" onclick="borrow()">租借</button>
-            <button>详细</button>
+            <button type="submit" onclick="msgbox(1)">租借</button>
+            <button onclick="Info4()">详细</button>
             <button onclick="sign()">标记</button>
         </div>
     </div>
     <div class="item">
         <img src="../images/物资/小桌子.png" alt="小桌子" class="itempic" />
-        <p class="name"> 物资：小桌子</p>
-        <p class="belong">所属社团：校青年志愿者协会</p>
+        <p id="id_itemsId5" class="itemsId"></p>
+        <p id="id_name5" class="name"></p>
+        <p id="id_belong5" class="belong"></p>
         <div class="mark">
-            <button type="submit" onclick="borrow()">租借</button>
-            <button>详细</button>
+            <button type="submit" onclick="msgbox(1)">租借</button>
+            <button onclick="Info5()">详细</button>
             <button onclick="sign()">标记</button>
         </div>
     </div>
     <div class="item">
         <img src="../images/物资/宣传栏.png" alt="宣传栏" class="itempic" />
-        <p class="name"> 物资：宣传栏</p>
-        <p class="belong">所属社团：校学生会</p>
+        <p id="id_itemsId6" class="itemsId"></p>
+        <p id="id_name6" class="name"></p>
+        <p id="id_belong6" class="belong"></p>
         <div class="mark">
-            <button type="submit" onclick="borrow()">租借</button>
-            <button>详细</button>
+            <button type="submit" onclick="msgbox(1)">租借</button>
+            <button onclick="Info6()">详细</button>
             <button onclick="sign()">标记</button>
         </div>
     </div>
     <div class="item">
         <img src="../images/物资/移动音响.png" alt="移动音响" class="itempic" />
-        <p class="name"> 物资：移动音响</p>
-        <p class="belong">所属社团：校青年志愿者协会</p>
+        <p id="id_itemsId7" class="itemsId"></p>
+        <p id="id_name7" class="name"></p>
+        <p id="id_belong7" class="belong"></p>
         <div class="mark">
-            <button type="submit" onclick="borrow()">租借</button>
-            <button>详细</button>
+            <button type="submit" onclick=msgbox(1)">租借</button>
+            <button onclick="Info7()">详细</button>
             <button onclick="sign()">标记</button>
         </div>
     </div>
     <div class="item">
-        <img src="物资/有线话筒.png" alt="有线话筒" class="itempic" />
-        <p class="name"> 物资：有线话筒</p>
-        <p class="belong">所属社团：校团委</p>
+        <img src="../images/物资/有线话筒.png" alt="有线话筒" class="itempic" />
+        <p id="id_itemsId8" class="itemsId"></p>
+        <p id="id_name8" class="name"></p>
+        <p id="id_belong8" class="belong"></p>
         <div class="mark">
-            <button type="submit" onclick="borrow()">租借</button>
-            <button>详细</button>
+            <button type="submit" onclick="msgbox(1)">租借</button>
+            <button onclick="Info8()">详细</button>
             <button onclick="sign()">标记</button>
         </div>
     </div>
     <div class="item">
         <img src="../images/物资/帐篷.png" alt="帐篷" class="itempic" />
-        <p class="name">物资：帐篷</p>
-        <p class="belong">所属社团：校学生会</p>
+        <p id="id_itemsId9" class="itemsId"></p>
+        <p id="id_name9" class="name"></p>
+        <p id="id_belong9" class="belong"></p>
         <div class="mark">
-            <button type="submit" onclick="borrow()">租借</button>
-            <button>详细</button>
+            <button type="submit" onclick="msgbox(1)">租借</button>
+            <button onclick="Info9()">详细</button>
             <button onclick="sign()">标记</button>
         </div>
     </div>
     <div class="item">
         <img src="../images/物资/遮阳棚.png" alt="遮阳棚" class="itempic" />
-        <p class="name"> 物资：遮阳棚</p>
-        <p class="belong">所属社团：校青年志愿者协会</p>
+        <p id="id_itemsId10" class="itemsId"></p>
+        <p id="id_name10" class="name"></p>
+        <p id="id_belong10" class="belong"></p>
         <div class="mark">
-            <button type="submit" onclick="borrow()">租借</button>
-            <button>详细</button>
+            <button type="submit" onclick="msgbox(1)">租借</button>
+            <button onclick="Info10()">详细</button>>
             <button onclick="sign()">标记</button>
         </div>
     </div>
 
+
+    <script type="text/javascript" src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        //点击租借按钮弹出文本框
+        function msgbox(n) {
+            /* 点击按钮打开/关闭 对话框 */
+            if (n == 1 | n == 0) {
+                document.getElementById('id_hide').style.display = n ? 'block' : 'none';
+            }
+            else
+                document.getElementById('id_hide').style.display = 'none';
+        }
+
+        function sign() {
+            alert("标记成功！");
+        }
+        function Info1() {
+            alert("剩余库存：" + window.localStorage.getItem("numbers1")
+                + "\n" + window.localStorage.getItem("detail1"));
+        }
+        function Info2() {
+            alert("剩余库存：" + window.localStorage.getItem("numbers2")
+                + "\n" + window.localStorage.getItem("detail2"));
+        }
+        function Info3() {
+            alert("剩余库存：" + window.localStorage.getItem("numbers3")
+                + "\n" + window.localStorage.getItem("detail3"));
+        }
+        function Info4() {
+            alert("剩余库存：" + window.localStorage.getItem("numbers4")
+                + "\n" + window.localStorage.getItem("detail4"));
+        }
+        function Info5() {
+            alert("剩余库存：" + window.localStorage.getItem("numbers5")
+                + "\n" + window.localStorage.getItem("detail5"));
+        }
+        function Info6() {
+            alert("剩余库存：" + window.localStorage.getItem("numbers6")
+                + "\n" + window.localStorage.getItem("detail6"));
+        }
+        function Info7() {
+            alert("剩余库存：" + window.localStorage.getItem("numbers7")
+                + "\n" + window.localStorage.getItem("detail7"));
+        }
+        function Info8() {
+            alert("剩余库存：" + window.localStorage.getItem("numbers8")
+                + "\n" + window.localStorage.getItem("detail8"));
+        }
+        function Info9() {
+            alert("剩余库存：" + window.localStorage.getItem("numbers9")
+                + "\n" + window.localStorage.getItem("detail9"));
+        }
+        function Info10() {
+            alert("剩余库存：" + window.localStorage.getItem("numbers10")
+                + "\n" + window.localStorage.getItem("detail10"));
+        }
+
+        //刷新物资按钮
+        $("#id_reburbish").click(function () {
+            $.ajax({
+                url: "http://47.94.228.136:9999/items/listAllproduct",
+                type: "GET",
+                contentType: 'application/json',
+                dataType: "json",
+                headers: { 'Authorization': window.localStorage.getItem("token") },
+                success: function (data) {
+                    if (data.status) {
+                        //有错误就展示错误
+                        alert("物资信息获取失败！");
+                    }
+                    else {
+                        alert("物资信息获取成功！");
+                        console.log(data);
+                        for (var i = 0; i < data.data.length; i++) {
+                            var ls = data.data[i];
+                            //在html页面id=test的标签里显示html内容
+                            var id_name = "id_name" + (i + 1);
+                            var id_belong = "id_belong" + (i + 1);
+                            var id_itemsId = "id_itemsId" + (i + 1);
+                            $("#" + id_itemsId).html("物资序号：" + ls.itemsId);
+                            $("#" + id_name).html("物资名称：" + ls.itemsName);
+                            $("#" + id_belong).html("所属社团：" + ls.community);
+                            window.localStorage.setItem('numbers' + (i + 1), ls.nowNumbers);
+                            window.localStorage.setItem('detail' + (i + 1), ls.detail);
+                        }
+                    }
+                },
+                error: function (data) {
+                    alert("出现错误！");
+                }
+            })
+        });
+
+        //租借中的确定按钮
+        $("#id_borrow").click(function () {
+            //取到用户填写的物资租借数据，向后端发送AJAX请求            
+            var order = $("#id_order").val();
+            var borrowNumbers = document.getElementsByClassName("borrowNumbers")[0].value;
+            var data1 = {
+                "itemsId": order,
+                "borrowNumbers": borrowNumbers,
+            };
+            $.ajax({
+                url: "http://47.94.228.136:9999/borrow/addBorrow",
+                type: "POST",
+                contentType: 'application/json',
+                dataType: "json",
+                data: JSON.stringify(data1),
+                headers: { 'Authorization': window.localStorage.getItem("token") },
+                success: function (data) {
+                    if (data.status) {
+                        //有错误就展示错误
+                        alert("物品租借失败！");
+                    }
+                    else {
+                        alert("物品租借成功！");
+                        console.log(data);
+                    }
+                },
+                error: function (data) {
+                    alert("出现错误！");
+                    console.log(data1);
+                    console.log(data);
+                }
+            })
+        });
+    </script>
 </body>
 
 </html>

@@ -32,11 +32,23 @@ header h1 {
     padding-left:40px; 
     font-family:Arial,verdana, sans-serif; 
     color: rgba(88, 255, 6, 1);
+    text-shadow: 0 0 10px;
     font-weight:bolder; 
     letter-spacing:-1px; 
     } 
 
-    
+   
+.back {
+    width: 110px;
+    height: 40px;
+    margin-top: 150px;
+    margin-left: 530px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #58ff06;
+    border: 1px solid #37210c;
+    text-shadow: 0 0 2px;
+} 
 
 .box{
     width: 902px;
@@ -50,6 +62,7 @@ header h1 {
     font-weight:normal; 
     font-size: 0.8em; 
     color: #ecf9ff; 
+    text-shadow: 0 0 10px;
 }
 
 
@@ -165,6 +178,65 @@ aside ul li a{
     clear:both; 
     } 
 
+.firstd2 .abox {
+    width: 725px;
+    height: 300px;
+    margin-top: 20px;
+    margin-left: 170px;
+    border: 1px #37210c solid;
+    background-color: #088589a3;
+    /* 默认对话框隐藏 */
+    display: none;
+}
+
+
+.firstd2 .abox p {
+    width:630px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-left: 90px;
+}
+
+
+.firstd2 .abox p span {
+    float: left;
+    height: 32px;
+    line-height: 30px;
+}
+
+.firstd2 .abox input {
+    float: left;
+    display: block;
+    width: 350px;
+    height: 30px;
+    margin-top: -2px;
+    font-size: 25px;
+    font-weight: 700;
+    background: #1cff00a6;
+    border: 1px #37210c solid;
+}
+
+.firstd2 .abox button{
+    width: 80px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #58ff06a1;
+    border: 1px #37210c solid;
+    margin-top: 7px;
+    margin-left: 35px;
+}
+
+.firstd2 .abox .p_one {
+    margin-top: 25px;
+}
+
+.firstd2 .abox .p_four {
+    width: 60px;
+}
 
 section{ 
     float:left; 
