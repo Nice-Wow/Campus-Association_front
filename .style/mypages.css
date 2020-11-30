@@ -258,24 +258,24 @@ header h1 {
 
 .rentel_record div{
     width: 200px;
-    height: 110px;
+    height: 125px;
     text-align: center;
     background: #a6ffde;
     border-radius: 10px;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 17px;
+    margin-left: 33px;
 }
 
 .rentel_record p {
     font-size: 20px;
     font-weight: 700;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .rentel_record button{
     font-size: 13px;
     font-weight: 700;
-    margin-top: 6px;
+    margin-top: 5px;
 }
 
 .borrowed {
@@ -283,25 +283,25 @@ header h1 {
 }
 
 .hide {
-    width: 500px;
-    height: 160px;
+    width: 580px;
+    height: 195px;
     position: absolute;
-    margin-top: 50px;
-    margin-left: 280px;
+    margin-top: 53px;
+    margin-left: 238px;
     background-color: #a6ffde;
     border: 1px black solid;
     border-radius: 20px;
     /* 默认对话框隐藏 */
-    /* display: none; */
+    display: none; 
 }
 
 
 .hide p {
-    width: 450px;
+    width: 510px;
     height: 50px;
     font-size: 18px;
     font-weight: 700;
-    margin-left: 50px;
+    margin-left: 35px;
     margin-top: -5px;
 }
 
@@ -314,12 +314,17 @@ header h1 {
 }
 
 .hide input {
+    display: block;
     float: left;
     width: 35px;
     height: 26px;
     line-height: 30px;
     font-size: 1.5em;
     font-weight: 700;
+}
+
+.hide .name {
+    width: 150px;
 }
 
 .hide button {
@@ -330,12 +335,11 @@ header h1 {
     font-weight: 700;
     background-color: #58ff06a1;
     border: 1px #37210c solid;
-    margin-top: 3px;
-    margin-left: 70px;
+    margin-left: 105px;
 }
 
-.hide .order_number {
-    margin-top: 22px;
+.hide .goods_name {
+    margin-top: 15px;
 }
 
 .firstd3 {

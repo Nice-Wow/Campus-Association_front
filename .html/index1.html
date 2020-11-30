@@ -14,7 +14,7 @@
     </div>
     <nav>
         <ul>
-            <li><a href="index1.html" class="square">广场 </a> </li>
+            <li><a href="index1.html" class="square" checked>广场 </a> </li>
             <li><a href="index2.html" class="og">组织 </a></li>
             <li><a href="mypages.html" class="mypages">我的 </a></li>
     </nav>
@@ -263,6 +263,7 @@
                     }
                     else {
                         alert("物品租借成功！");
+                        document.getElementById("id_order").value = "";
                         console.log(data);
                     }
                 },

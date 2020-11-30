@@ -53,14 +53,14 @@ div .image2 {
 .hide {
     width: 500px;
     height: 160px;
-    position: absolute;
-    margin-top: 140px;
-    margin-left: 400px;
+    position: fixed;
+    top: 150px;
+    left: 400px;
+    margin: 0 auto;
     background-color: #a6ffde;
     border: 1px black solid;
     border-radius: 20px;
-    /* 默认对话框隐藏 */
-    display: none;
+    display: none;  /* 默认对话框隐藏 */
 }
 
 

@@ -29,26 +29,26 @@
           <section id="id_borrowing" class="og_section rentel_record borrowing">
 
           </section>
-          <!-- <div id="id_hide" class="hide">
-            <p class="order_number">
+          <div id="id_hide" class="hide">
+            <p class="goods_name">
+              <span>请输入归还租借的物资名称：</span>
+              <input id="id_name" class="name" type="text">
+            </p>
+            <p>
               <span>请输入归还租借的物资序号：</span>
               <input id="id_order" type="text">
             </p>
             <p>
               <span>请输入归还租借的物资数量：</span>
-              <input class="borrowNumbers" type="number" min="1" max="5" value="1">
+              <input id="id_borrowNumbers" class="borrowNumbers" type="number" min="1" max="5" value="1">
             </p>
             <p>
-              <button id="id_borrow" onClick="msgbox(0)">确定</button>
-              <button onClick="msgbox(2)">关闭</button>
+              <button id="id_borrow" onClick="backbox(1)">确定</button>
+              <button onClick="backbox(1)">关闭</button>
             </p>
-          </div> -->
+          </div>
           <section id="id_borrowed" class="og_section rentel_record borrowed">
-            <div>
-              <p><span>物资序号：</span></p>
-              <p><span>租借数量：</span></p>
-              <button>重新租借</button>
-            </div>
+
           </section>
         </div>
       </li>
@@ -57,7 +57,7 @@
         <input type="radio" name="check" id="active2"><label for="active2">我的组织</label>
         <div class="firstd2">
           <ul class="board">
-            <li><a href="#" onClick="msgbox(1)">物质管理 </a></li>
+            <li><a href="#" onClick="msgbox(1)">物资发布</a></li>
             <li><a href="#">邀请管理员 </a></li>
             <li><a href="#">转让负责人 </a></li>
             <li><a href="#">更多 </a></li>
@@ -67,7 +67,7 @@
             <p> <span>所属社团：</span> <input type="text" id="id_community"></p>
             <p> <span>详情备注：</span> <input type="text" id="id_detail"></p>
             <p> <span>物资数量：</span> <input type="number" min="1" max="100" value="10" class="p_four" id="id_numbers"></p>
-            <button id="issuance">确定</button>
+            <button id="id_issuance">确定</button>
             <button onClick="msgbox(0)">关闭</button>
           </div>
           <section id="id_section" class="og_section">
@@ -204,12 +204,14 @@
     function information2() {
       alert("型号：动圈式麦克风\n使用情况：一年");
     }
+
     //实现“我的组织”中“物资管理”的显示与关闭
     function msgbox(n) {
       /* 点击按钮打开/关闭 对话框 */
       document.getElementById('id_abox').style.display = n ? 'block' : 'none';
       document.getElementById('id_section').style.display = n ? 'none' : 'block';
     }
+
     //实现“租借记录”中“租借中”和“完成租借”的转换显示
     function msgborrow(n) {
       /* 点击按钮打开/关闭 对话框 */
@@ -232,8 +234,8 @@
               var html = "";
               for (var i = 0; i < data.data.length; i++) {
                 var ls = data.data[i];
-                html += "<div><p><span>物资名称：" + ls.itemsName + "</span></p><p><span>租借数量："
-                  + ls.borrowNumbers + "</span></p><button>取消租借</button></div>"
+                html += "<div><p><span>物资名称：" + ls.itemsName + "</span></p><p><span>物资序号：" + ls.itemsId + "</span></p><p><span>租借数量："
+                  + ls.borrowNumbers + "</span></p><button id='id_cancel'>取消租借</button></div>"
               }
               $("#id_borrowing").html(html); //在html页面id=test的标签里显示html内容
               console.log(data);
@@ -245,8 +247,21 @@
         });
       }
     }
-    //AJAX提交物资发布数据
-    $("#issuance").click(function () {
+
+    //点击物资“取消租借”按钮后弹出文本框
+    $(document).on("click", "#id_cancel", function (n) {
+      document.getElementById('id_hide').style.display = n ? 'block' : 'none';
+    })
+
+    //实现填写归还租借信息的文本框的关闭
+    function backbox(n) {
+      /* 点击按钮打开/关闭 对话框 */
+      document.getElementById('id_hide').style.display = n ? 'none' : 'block';
+    }
+
+
+    //物资发布事件(AJAX提交物资发布数据)
+    $("#id_issuance").click(function () {
       //取到用户填写的物资发布数据，向后端发送AJAX请求            
       var itemsName = $("#id_itemsName").val();
       var community = $("#id_community").val();
@@ -286,6 +301,49 @@
         }
       })
     });
+
+    //取消租借事件（AJAX提交物资租借数据）
+    $("#id_borrow").click(function () {
+      //取到用户填写的物资发布数据，向后端发送AJAX请求  
+      var name = $("#id_name").val();
+      var order = $("#id_order").val();
+      var borrowNumbers = $("#id_borrowNumbers").val();
+      var data1 = {
+        "itemsName": name,
+        "itemsId": order,
+        "borrowNumbers": borrowNumbers,
+      };
+      $.ajax({
+        url: "http://47.94.228.136:9999/borrow/reBorrow",
+        type: "POST",
+        contentType: 'application/json',
+        dataType: "json",
+        data: JSON.stringify(data1),
+        headers: { 'Authorization': window.localStorage.getItem("token") },
+        success: function (data) {
+          if (data.status) {
+            //有错误就展示错误
+            alert("物资归还失败！");
+          }
+          else {
+            alert("物资归还成功！");
+            console.log(data);
+            //将文本框内容置空
+            document.getElementById("id_name").value = "";
+            document.getElementById("id_order").value = "";
+            //归入完成租借的一类
+            var html = "";
+            html += "<div><p><span>物资名称：" + data1.itemsName + "</span></p><p><span>物资序号：" + data1.itemsId + "</span></p><p><span>租借数量："
+              + data1.borrowNumbers + "</span></p><button id='id_reborrow'>重新租借</button></div>"
+            $("#id_borrowing").html(html); //在html页面id=test的标签里显示html内容
+          }
+        },
+        error: function (data) {
+          alert("出现错误！");
+        }
+      })
+    });
+
   </script>
 
 
